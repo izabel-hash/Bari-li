@@ -3,61 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>בריא-box | שליפה מהמקרר ישר לתיק</title>
+<title>בריא-לי | ישר לתיק</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Hebrew:wght@400;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --green-deep: #1a3a2a;
-    --green-mid: #2d6a4f;
-    --green-light: #52b788;
-    --green-pale: #d8f3dc;
-    --cream: #faf7f0;
-    --cream-dark: #f0ebe0;
-    --warm-brown: #6b4226;
-    --text-dark: #1a1a1a;
-    --text-mid: #444;
-    --accent: #e9c46a;
-    --accent-dark: #c98d2a;
-    --white: #ffffff;
+    --olive-deep:    #2c3a1e;
+    --olive-mid:     #4a5e2f;
+    --olive-rich:    #6b7c3f;
+    --olive-light:   #8fa84e;
+    --olive-pale:    #d6ddb8;
+    --olive-mist:    #f0f2e6;
+    --cream:         #faf8f2;
+    --cream-dark:    #ece9de;
+    --warm-tan:      #b5a47a;
+    --text-dark:     #1a1e12;
+    --text-mid:      #4a4e3a;
+    --text-light:    #7a7e6a;
+    --accent-gold:   #c9a84c;
+    --accent-warm:   #e8c96a;
+    --white:         #ffffff;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Heebo', sans-serif;
+    font-family: "Heebo", sans-serif;
     background: var(--cream);
     color: var(--text-dark);
     direction: rtl;
     overflow-x: hidden;
   }
 
-  /* NAV */
+  /* ── NAV ── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    padding: 1rem 2.5rem;
+    padding: 0.9rem 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(250,247,240,0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(45,106,79,0.12);
+    background: rgba(250,248,242,0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(74,94,47,0.10);
   }
 
   .nav-logo {
-    font-family: 'Noto Serif Hebrew', serif;
-    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .nav-logo img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+  }
+
+  .nav-logo-text {
+    font-family: "Noto Serif Hebrew", serif;
+    font-size: 1.45rem;
     font-weight: 900;
-    color: var(--green-deep);
+    color: var(--olive-deep);
     letter-spacing: -0.5px;
   }
 
-  .nav-logo span {
-    color: var(--green-light);
-  }
+  .nav-logo-text span { color: var(--olive-light); }
 
   nav ul {
     list-style: none;
@@ -68,25 +81,24 @@
   nav a {
     text-decoration: none;
     color: var(--text-mid);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
     transition: color 0.2s;
   }
 
-  nav a:hover { color: var(--green-mid); }
+  nav a:hover { color: var(--olive-mid); }
 
   .nav-cta {
-    background: var(--green-mid);
+    background: var(--olive-mid);
     color: white !important;
     padding: 0.5rem 1.25rem;
     border-radius: 50px;
-    font-weight: 500;
     transition: background 0.2s !important;
   }
 
-  .nav-cta:hover { background: var(--green-deep) !important; }
+  .nav-cta:hover { background: var(--olive-deep) !important; }
 
-  /* HERO */
+  /* ── HERO ── */
   .hero {
     min-height: 100vh;
     padding: 8rem 5% 4rem;
@@ -94,75 +106,76 @@
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 4rem;
-    background: linear-gradient(160deg, var(--cream) 55%, var(--green-pale) 100%);
+    background: linear-gradient(155deg, var(--cream) 50%, var(--olive-mist) 100%);
     position: relative;
     overflow: hidden;
   }
 
   .hero::before {
-    content: '';
+    content: "";
     position: absolute;
-    bottom: -80px;
-    left: -80px;
-    width: 400px;
-    height: 400px;
+    bottom: -100px; left: -100px;
+    width: 500px; height: 500px;
     border-radius: 50%;
-    background: var(--green-pale);
-    opacity: 0.5;
-    z-index: 0;
+    background: var(--olive-pale);
+    opacity: 0.25;
   }
 
-  .hero-text {
-    position: relative;
-    z-index: 1;
+  .hero::after {
+    content: "";
+    position: absolute;
+    top: 60px; left: 38%;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--olive-pale) 0%, transparent 70%);
+    opacity: 0.4;
   }
+
+  .hero-text { position: relative; z-index: 1; }
 
   .hero-tag {
     display: inline-block;
-    background: var(--green-pale);
-    color: var(--green-mid);
-    font-size: 0.85rem;
+    background: var(--olive-mist);
+    color: var(--olive-mid);
+    font-size: 0.82rem;
     font-weight: 700;
     padding: 0.35rem 1rem;
     border-radius: 50px;
     margin-bottom: 1.5rem;
     letter-spacing: 0.5px;
+    border: 1px solid var(--olive-pale);
   }
 
   .hero h1 {
-    font-family: 'Noto Serif Hebrew', serif;
-    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-family: "Noto Serif Hebrew", serif;
+    font-size: clamp(2.6rem, 4.8vw, 4rem);
     font-weight: 900;
     line-height: 1.15;
-    color: var(--green-deep);
+    color: var(--olive-deep);
     margin-bottom: 1.25rem;
   }
 
   .hero h1 em {
     font-style: normal;
-    color: var(--green-light);
+    color: var(--olive-light);
   }
 
   .hero-desc {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: var(--text-mid);
-    line-height: 1.8;
-    max-width: 480px;
+    line-height: 1.9;
+    max-width: 460px;
     margin-bottom: 2.5rem;
     font-weight: 300;
   }
 
-  .hero-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
 
   .btn-primary {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--green-mid);
+    background: var(--olive-mid);
     color: white;
     text-decoration: none;
     padding: 0.9rem 2rem;
@@ -170,34 +183,29 @@
     font-size: 1rem;
     font-weight: 700;
     transition: background 0.2s, transform 0.15s;
-    box-shadow: 0 4px 20px rgba(45,106,79,0.3);
+    box-shadow: 0 4px 20px rgba(74,94,47,0.28);
   }
 
-  .btn-primary:hover {
-    background: var(--green-deep);
-    transform: translateY(-1px);
-  }
+  .btn-primary:hover { background: var(--olive-deep); transform: translateY(-1px); }
 
   .btn-secondary {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     background: transparent;
-    color: var(--green-mid);
+    color: var(--olive-mid);
     text-decoration: none;
     padding: 0.9rem 2rem;
     border-radius: 50px;
     font-size: 1rem;
     font-weight: 700;
-    border: 2px solid var(--green-mid);
+    border: 2px solid var(--olive-mid);
     transition: all 0.2s;
   }
 
-  .btn-secondary:hover {
-    background: var(--green-pale);
-  }
+  .btn-secondary:hover { background: var(--olive-mist); }
 
-  /* BOX ILLUSTRATION */
+  /* ── HERO VISUAL ── */
   .hero-visual {
     position: relative;
     z-index: 1;
@@ -206,83 +214,83 @@
     align-items: center;
   }
 
-  .box-wrapper {
+  .logo-hero-wrap {
     position: relative;
-    animation: float 4s ease-in-out infinite;
+    animation: float 5s ease-in-out infinite;
+  }
+
+  .logo-hero-wrap img {
+    width: 340px;
+    height: 340px;
+    object-fit: contain;
+    filter: drop-shadow(0 24px 48px rgba(44,58,30,0.22));
+  }
+
+  .logo-shadow {
+    position: absolute;
+    bottom: -24px; left: 50%;
+    transform: translateX(-50%);
+    width: 240px; height: 24px;
+    background: rgba(44,58,30,0.15);
+    border-radius: 50%;
+    filter: blur(10px);
+    animation: shadow-pulse 5s ease-in-out infinite;
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-  }
-
-  .box-shadow-el {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 220px;
-    height: 24px;
-    background: rgba(45,106,79,0.18);
-    border-radius: 50%;
-    filter: blur(8px);
-    animation: shadow-pulse 4s ease-in-out infinite;
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(-14px); }
   }
 
   @keyframes shadow-pulse {
-    0%, 100% { width: 220px; opacity: 0.5; }
-    50% { width: 180px; opacity: 0.25; }
+    0%,100% { width: 240px; opacity: 0.45; }
+    50%      { width: 190px; opacity: 0.22; }
   }
 
-  /* STATS ROW */
+  /* ── STATS ── */
   .stats-row {
-    background: var(--green-deep);
-    padding: 2rem 5%;
+    background: var(--olive-deep);
+    padding: 2.2rem 5%;
     display: flex;
     justify-content: center;
     gap: 5rem;
     flex-wrap: wrap;
   }
 
-  .stat-item {
-    text-align: center;
-    color: white;
-  }
+  .stat-item { text-align: center; }
 
   .stat-num {
-    font-family: 'Noto Serif Hebrew', serif;
+    font-family: "Noto Serif Hebrew", serif;
     font-size: 2.2rem;
     font-weight: 900;
-    color: var(--accent);
+    color: var(--accent-warm);
     display: block;
   }
 
   .stat-label {
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.7);
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
     margin-top: 0.2rem;
   }
 
-  /* SECTIONS */
-  section {
-    padding: 5rem 5%;
-  }
+  /* ── SECTIONS ── */
+  section { padding: 5.5rem 5%; }
 
   .section-tag {
     display: inline-block;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: var(--green-light);
+    color: var(--olive-light);
     margin-bottom: 0.75rem;
   }
 
   .section-title {
-    font-family: 'Noto Serif Hebrew', serif;
+    font-family: "Noto Serif Hebrew", serif;
     font-size: clamp(1.8rem, 3.5vw, 2.8rem);
     font-weight: 900;
-    color: var(--green-deep);
+    color: var(--olive-deep);
     line-height: 1.2;
     margin-bottom: 1rem;
   }
@@ -290,15 +298,13 @@
   .section-subtitle {
     font-size: 1.05rem;
     color: var(--text-mid);
-    line-height: 1.8;
+    line-height: 1.85;
     max-width: 560px;
     font-weight: 300;
   }
 
-  /* PRODUCT SECTION */
-  .product-section {
-    background: var(--white);
-  }
+  /* ── PRODUCT ── */
+  .product-section { background: var(--white); }
 
   .product-grid {
     display: grid;
@@ -309,10 +315,10 @@
   }
 
   .product-details h3 {
-    font-family: 'Noto Serif Hebrew', serif;
-    font-size: 1.4rem;
+    font-family: "Noto Serif Hebrew", serif;
+    font-size: 1.35rem;
     font-weight: 700;
-    color: var(--green-deep);
+    color: var(--olive-deep);
     margin-bottom: 1.5rem;
   }
 
@@ -329,92 +335,271 @@
     gap: 0.6rem;
     font-size: 0.95rem;
     color: var(--text-mid);
-    font-weight: 400;
   }
 
   .veggie-dot {
-    width: 10px;
-    height: 10px;
+    width: 9px; height: 9px;
     border-radius: 50%;
-    background: var(--green-light);
+    background: var(--olive-light);
     flex-shrink: 0;
   }
 
   .product-specs {
     margin-top: 2rem;
     padding: 1.25rem 1.5rem;
-    background: var(--cream);
+    background: var(--olive-mist);
     border-radius: 16px;
-    border-right: 4px solid var(--green-light);
+    border-right: 4px solid var(--olive-light);
   }
 
   .product-specs p {
     font-size: 0.9rem;
     color: var(--text-mid);
-    line-height: 1.9;
+    line-height: 2;
   }
 
-  .product-specs strong {
-    color: var(--green-deep);
-    font-weight: 700;
-  }
+  .product-specs strong { color: var(--olive-deep); font-weight: 700; }
 
-  /* VALUES */
-  .values-section {
+  /* ── WHO WE ARE ── */
+  .about-section {
     background: var(--cream-dark);
+    position: relative;
+    overflow: hidden;
   }
+
+  .about-section::before {
+    content: "";
+    position: absolute;
+    top: -60px; left: -80px;
+    width: 380px; height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--olive-pale) 0%, transparent 70%);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .about-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  /* ── Logo column ── */
+  .about-logo-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .about-logo-frame {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 16px;
+  }
+
+  .about-logo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+  }
+
+  .about-stamp {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: 100%;
+  }
+
+  .stamp-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--white);
+    border: 1px solid var(--olive-pale);
+    border-right: 4px solid var(--olive-light);
+    padding: 0.75rem 1.1rem;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    font-weight: 500;
+    box-shadow: 0 2px 10px rgba(44,58,30,0.07);
+  }
+
+  .stamp-badge .stamp-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: var(--olive-mist);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .stamp-badge strong {
+    color: var(--olive-deep);
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 0.05rem;
+  }
+
+  /* ── Story column ── */
+  .about-story-col { display: flex; flex-direction: column; gap: 2.5rem; }
+
+  .story-lead {
+    font-family: "Noto Serif Hebrew", serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--olive-deep);
+    line-height: 1.5;
+  }
+
+  .story-lead em {
+    font-style: normal;
+    color: var(--olive-light);
+  }
+
+  .story-body {
+    font-size: 0.98rem;
+    color: var(--text-mid);
+    line-height: 2;
+    font-weight: 300;
+  }
+
+  /* ── Process timeline ── */
+  .process-title {
+    font-family: "Noto Serif Hebrew", serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--olive-deep);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--olive-pale);
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline-step {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .timeline-step:last-child { padding-bottom: 0; }
+
+  .timeline-step::before {
+    content: "";
+    position: absolute;
+    right: 21px;
+    top: 44px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--olive-pale), transparent);
+  }
+
+  .timeline-step:last-child::before { display: none; }
+
+  .t-dot {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--olive-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(44,58,30,0.10);
+    position: relative;
+    z-index: 1;
+  }
+
+  .t-content { padding-top: 0.2rem; }
+
+  .t-content h4 {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--olive-deep);
+    margin-bottom: 0.2rem;
+  }
+
+  .t-content p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ── VALUES ── */
+  .values-section { background: var(--white); }
 
   .values-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 1.75rem;
     margin-top: 3rem;
   }
 
   .value-card {
-    background: var(--white);
+    background: var(--cream);
     border-radius: 20px;
-    padding: 2rem;
-    border: 1px solid rgba(45,106,79,0.1);
+    padding: 1.85rem;
+    border: 1px solid var(--olive-pale);
     transition: transform 0.2s, box-shadow 0.2s;
   }
 
   .value-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(45,106,79,0.12);
+    box-shadow: 0 14px 40px rgba(44,58,30,0.10);
   }
 
   .value-icon {
-    width: 52px;
-    height: 52px;
+    width: 50px; height: 50px;
     border-radius: 14px;
-    background: var(--green-pale);
+    background: var(--olive-mist);
+    border: 1px solid var(--olive-pale);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.25rem;
-    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .value-card h3 {
-    font-family: 'Noto Serif Hebrew', serif;
-    font-size: 1.2rem;
+    font-family: "Noto Serif Hebrew", serif;
+    font-size: 1.1rem;
     font-weight: 700;
-    color: var(--green-deep);
+    color: var(--olive-deep);
     margin-bottom: 0.6rem;
   }
 
   .value-card p {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--text-mid);
-    line-height: 1.8;
+    line-height: 1.85;
     font-weight: 300;
   }
 
-  /* HOW IT WORKS */
-  .how-section {
-    background: var(--white);
-  }
+  /* ── HOW ── */
+  .how-section { background: var(--cream-dark); }
 
   .steps-row {
     display: grid;
@@ -425,93 +610,79 @@
   }
 
   .steps-row::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 30px;
-    right: 12.5%;
-    left: 12.5%;
+    right: 12.5%; left: 12.5%;
     height: 2px;
-    background: var(--green-pale);
+    background: var(--olive-pale);
     z-index: 0;
   }
 
-  .step {
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
+  .step { text-align: center; position: relative; z-index: 1; }
 
   .step-num {
-    width: 60px;
-    height: 60px;
+    width: 60px; height: 60px;
     border-radius: 50%;
-    background: var(--green-pale);
-    border: 3px solid var(--green-light);
+    background: var(--white);
+    border: 3px solid var(--olive-light);
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1rem;
-    font-family: 'Noto Serif Hebrew', serif;
+    font-family: "Noto Serif Hebrew", serif;
     font-size: 1.4rem;
     font-weight: 900;
-    color: var(--green-mid);
-    background: var(--white);
+    color: var(--olive-mid);
   }
 
-  .step h4 {
-    font-weight: 700;
-    color: var(--green-deep);
-    margin-bottom: 0.4rem;
-    font-size: 0.95rem;
-  }
+  .step h4 { font-weight: 700; color: var(--olive-deep); margin-bottom: 0.4rem; font-size: 0.95rem; }
+  .step p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.7; font-weight: 300; }
 
-  .step p {
-    font-size: 0.85rem;
-    color: var(--text-mid);
-    line-height: 1.7;
-    font-weight: 300;
-  }
-
-  /* ORDER SECTION */
+  /* ── ORDER ── */
   .order-section {
-    background: var(--green-deep);
+    background: var(--olive-deep);
     text-align: center;
     position: relative;
     overflow: hidden;
   }
 
   .order-section::before {
-    content: '';
+    content: "";
     position: absolute;
-    top: -100px;
-    right: -100px;
-    width: 350px;
-    height: 350px;
+    top: -120px; right: -120px;
+    width: 400px; height: 400px;
     border-radius: 50%;
-    background: rgba(82,183,136,0.1);
+    background: rgba(107,124,63,0.12);
   }
 
   .order-section::after {
-    content: '';
+    content: "";
     position: absolute;
-    bottom: -80px;
-    left: -80px;
-    width: 280px;
-    height: 280px;
+    bottom: -90px; left: -90px;
+    width: 300px; height: 300px;
     border-radius: 50%;
-    background: rgba(82,183,136,0.08);
+    background: rgba(107,124,63,0.08);
   }
 
-  .order-section .section-tag { color: var(--accent); }
+  .order-section .section-tag { color: var(--accent-warm); }
+  .order-section .section-title { color: white; margin-bottom: 1rem; }
+  .order-section .section-subtitle { color: rgba(255,255,255,0.68); margin: 0 auto 2.5rem; }
 
-  .order-section .section-title {
-    color: white;
-    margin-bottom: 1rem;
-  }
-
-  .order-section .section-subtitle {
-    color: rgba(255,255,255,0.7);
-    margin: 0 auto 2.5rem;
+  .price-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: var(--accent-warm);
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
   }
 
   .whatsapp-btn {
@@ -526,7 +697,7 @@
     font-size: 1.1rem;
     font-weight: 700;
     transition: all 0.2s;
-    box-shadow: 0 6px 30px rgba(37,211,102,0.35);
+    box-shadow: 0 6px 30px rgba(37,211,102,0.32);
     position: relative;
     z-index: 1;
   }
@@ -534,43 +705,23 @@
   .whatsapp-btn:hover {
     background: #1ebe5d;
     transform: translateY(-2px);
-    box-shadow: 0 8px 36px rgba(37,211,102,0.45);
+    box-shadow: 0 8px 36px rgba(37,211,102,0.42);
   }
 
-  .whatsapp-icon {
-    width: 28px;
-    height: 28px;
-    flex-shrink: 0;
-  }
+  .whatsapp-icon { width: 28px; height: 28px; flex-shrink: 0; }
 
   .order-note {
     margin-top: 1.25rem;
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.45);
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.38);
     position: relative;
     z-index: 1;
   }
 
-  .price-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    color: var(--accent);
-    padding: 0.6rem 1.5rem;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* FOOTER */
+  /* ── FOOTER ── */
   footer {
-    background: var(--green-deep);
-    border-top: 1px solid rgba(255,255,255,0.08);
+    background: var(--olive-deep);
+    border-top: 1px solid rgba(255,255,255,0.07);
     padding: 2rem 5%;
     display: flex;
     justify-content: space-between;
@@ -580,31 +731,44 @@
   }
 
   .footer-logo {
-    font-family: 'Noto Serif Hebrew', serif;
-    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .footer-logo img { width: 36px; height: 36px; object-fit: contain; }
+
+  .footer-logo-text {
+    font-family: "Noto Serif Hebrew", serif;
+    font-size: 1.2rem;
     font-weight: 900;
     color: white;
   }
 
-  .footer-logo span { color: var(--green-light); }
+  .footer-logo-text span { color: var(--olive-light); }
 
-  footer p {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.35);
-  }
+  footer p { font-size: 0.78rem; color: rgba(255,255,255,0.32); }
 
-  /* RESPONSIVE */
-  @media (max-width: 860px) {
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
     .hero { grid-template-columns: 1fr; text-align: center; padding-top: 7rem; }
     .hero-desc { margin: 0 auto 2rem; }
     .hero-buttons { justify-content: center; }
     .hero-visual { order: -1; }
-    .product-grid, .values-grid { grid-template-columns: 1fr; }
+    .logo-hero-wrap img { width: 240px; height: 240px; }
+    .product-grid { grid-template-columns: 1fr; }
+    .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-logo-col { align-items: center; }
+    .values-grid { grid-template-columns: 1fr 1fr; }
     .steps-row { grid-template-columns: 1fr 1fr; }
     .steps-row::before { display: none; }
     nav ul { display: none; }
     .stats-row { gap: 2.5rem; }
     .veggie-list { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .values-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -612,10 +776,14 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">בריא<span>-box</span></div>
+  <div class="nav-logo">
+    <img src="https://raw.githubusercontent.com/izabel-hash/Bari-li/refs/heads/main/logo.png">
+    <div class="nav-logo-text">בריא<span>-לי</span></div>
+  </div>
   <ul>
     <li><a href="#product">המוצר</a></li>
-    <li><a href="#values">הערכים שלנו</a></li>
+    <li><a href="#about">מי אנחנו</a></li>
+    <li><a href="#values">הערכים</a></li>
     <li><a href="#how">איך זה עובד</a></li>
     <li><a href="#order" class="nav-cta">להזמנה</a></li>
   </ul>
@@ -624,7 +792,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
-    <div class="hero-tag">🥦 טרי · טבעי · נוח</div>
+    <div class="hero-tag">🫒 טרי · ישראלי · מקומי</div>
     <h1>שליפה מהמקרר<br><em>ישר לתיק</em></h1>
     <p class="hero-desc">
       ירקות מיני שלמים, שטופים ומוכנים לאכילה — בקופסה קטנה שנכנסת לכל תיק.
@@ -632,43 +800,13 @@
     </p>
     <div class="hero-buttons">
       <a href="#order" class="btn-primary">להזמנה עכשיו ←</a>
-      <a href="#product" class="btn-secondary">גלה עוד</a>
+      <a href="#about" class="btn-secondary">גלה עוד</a>
     </div>
   </div>
   <div class="hero-visual">
-    <div class="box-wrapper">
-      <svg width="320" height="280" viewBox="0 0 320 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Box body -->
-        <rect x="40" y="120" width="240" height="130" rx="16" fill="#2d6a4f"/>
-        <!-- Box lid -->
-        <rect x="30" y="95" width="260" height="45" rx="12" fill="#1a3a2a"/>
-        <!-- Box shine -->
-        <rect x="50" y="130" width="220" height="110" rx="12" fill="#3a7a5e" opacity="0.4"/>
-        <!-- Brand label on box -->
-        <rect x="90" y="148" width="140" height="56" rx="10" fill="rgba(255,255,255,0.1)"/>
-        <text x="160" y="172" text-anchor="middle" font-family="'Noto Serif Hebrew', serif" font-size="18" font-weight="900" fill="white">בריא-box</text>
-        <text x="160" y="193" text-anchor="middle" font-family="'Heebo', sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">שליפה מהמקרר ישר לתיק</text>
-        <!-- Veggies peeking out of box -->
-        <!-- Cucumber -->
-        <ellipse cx="100" cy="108" rx="18" ry="26" fill="#52b788" transform="rotate(-20 100 108)"/>
-        <ellipse cx="100" cy="108" rx="10" ry="20" fill="#68d3a3" opacity="0.5" transform="rotate(-20 100 108)"/>
-        <!-- Tomato -->
-        <circle cx="160" cy="98" r="22" fill="#e63946"/>
-        <circle cx="160" cy="98" r="14" fill="#ef4e5b" opacity="0.5"/>
-        <rect x="157" y="76" width="6" height="10" rx="3" fill="#2d6a4f"/>
-        <!-- Pepper -->
-        <ellipse cx="220" cy="103" rx="16" ry="22" fill="#e9c46a" transform="rotate(15 220 103)"/>
-        <ellipse cx="220" cy="103" rx="9" ry="15" fill="#f5d98a" opacity="0.5" transform="rotate(15 220 103)"/>
-        <!-- Small carrot -->
-        <ellipse cx="130" cy="100" rx="10" ry="18" fill="#f4a261" transform="rotate(10 130 100)"/>
-        <path d="M130 83 Q134 76 136 70" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-        <!-- Size indicator -->
-        <path d="M40 240 L40 260" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
-        <path d="M280 240 L280 260" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="3,3"/>
-        <path d="M40 252 L280 252" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-        <text x="160" y="272" text-anchor="middle" font-family="'Heebo', sans-serif" font-size="10" fill="rgba(255,255,255,0.4)">14 × 8 × 5 ס״מ</text>
-      </svg>
-      <div class="box-shadow-el"></div>
+    <div class="logo-hero-wrap">
+    <img src="https://raw.githubusercontent.com/izabel-hash/Bari-li/refs/heads/main/logo.png">
+      <div class="logo-shadow"></div>
     </div>
   </div>
 </section>
@@ -688,7 +826,7 @@
     <span class="stat-label">חיתוך, שטיפה, הכנה</span>
   </div>
   <div class="stat-item">
-    <span class="stat-num">₪10-15</span>
+    <span class="stat-num">₪10–15</span>
     <span class="stat-label">לקופסה</span>
   </div>
 </div>
@@ -697,36 +835,28 @@
 <section class="product-section" id="product">
   <div class="section-tag">המוצר</div>
   <h2 class="section-title">מה יש בפנים?</h2>
-  <p class="section-subtitle">
-    ירקות מיני שלמים — לא פרוסים, לא חתוכים. טריים, שטופים ומוכנים לאכילה ישירה מהקופסה.
-  </p>
+  <p class="section-subtitle">ירקות מיני שלמים — לא פרוסים, לא חתוכים. טריים, שטופים ומוכנים לאכילה ישירה מהקופסה.</p>
   <div class="product-grid">
     <div>
       <svg width="100%" viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
-        <!-- Background blob -->
-        <ellipse cx="200" cy="180" rx="180" ry="130" fill="#d8f3dc" opacity="0.6"/>
-        <!-- Cucumbers -->
-        <ellipse cx="120" cy="190" rx="15" ry="38" fill="#52b788" transform="rotate(-30 120 190)"/>
-        <ellipse cx="120" cy="190" rx="8" ry="28" fill="#74c7a0" opacity="0.6" transform="rotate(-30 120 190)"/>
-        <ellipse cx="148" cy="210" rx="13" ry="34" fill="#43a07a" transform="rotate(-20 148 210)"/>
-        <!-- Tomatoes -->
-        <circle cx="210" cy="160" r="26" fill="#e63946"/>
-        <circle cx="210" cy="160" r="16" fill="#ef4e5b" opacity="0.4"/>
-        <rect x="207" y="134" width="6" height="12" rx="3" fill="#2d6a4f"/>
-        <circle cx="250" cy="195" r="20" fill="#e63946"/>
-        <rect x="247" y="175" width="6" height="10" rx="3" fill="#2d6a4f"/>
-        <!-- Mini peppers -->
-        <ellipse cx="300" cy="155" rx="13" ry="30" fill="#e9c46a" transform="rotate(20 300 155)"/>
-        <ellipse cx="300" cy="155" rx="7" ry="20" fill="#f5d98a" opacity="0.6" transform="rotate(20 300 155)"/>
-        <ellipse cx="278" cy="220" rx="12" ry="26" fill="#ef233c" transform="rotate(-10 278 220)"/>
-        <!-- Carrots -->
-        <ellipse cx="175" cy="230" rx="10" ry="26" fill="#f4a261" transform="rotate(15 175 230)"/>
-        <path d="M175 204 Q180 196 183 188" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-        <ellipse cx="200" cy="245" rx="9" ry="22" fill="#e88c4a" transform="rotate(-5 200 245)"/>
-        <!-- Lettuce -->
-        <ellipse cx="330" cy="210" rx="30" ry="18" fill="#95d5b2" transform="rotate(-15 330 210)"/>
-        <ellipse cx="345" cy="195" rx="22" ry="14" fill="#74c69d" transform="rotate(10 345 195)"/>
-        <ellipse cx="315" cy="225" rx="20" ry="12" fill="#52b788" transform="rotate(-20 315 225)"/>
+        <ellipse cx="200" cy="180" rx="180" ry="130" fill="#d6ddb8" opacity="0.5"/>
+        <ellipse cx="120" cy="190" rx="15" ry="38" fill="#6b7c3f" transform="rotate(-30 120 190)"/>
+        <ellipse cx="120" cy="190" rx="8" ry="28" fill="#8fa84e" opacity="0.5" transform="rotate(-30 120 190)"/>
+        <ellipse cx="148" cy="210" rx="13" ry="34" fill="#4a5e2f" transform="rotate(-20 148 210)"/>
+        <circle cx="210" cy="160" r="26" fill="#c0392b"/>
+        <circle cx="210" cy="160" r="16" fill="#d9534f" opacity="0.4"/>
+        <rect x="207" y="134" width="6" height="12" rx="3" fill="#4a5e2f"/>
+        <circle cx="250" cy="195" r="20" fill="#c0392b"/>
+        <rect x="247" y="175" width="6" height="10" rx="3" fill="#4a5e2f"/>
+        <ellipse cx="300" cy="155" rx="13" ry="30" fill="#c9a84c" transform="rotate(20 300 155)"/>
+        <ellipse cx="300" cy="155" rx="7" ry="20" fill="#e8c96a" opacity="0.5" transform="rotate(20 300 155)"/>
+        <ellipse cx="278" cy="220" rx="12" ry="26" fill="#b5451b" transform="rotate(-10 278 220)"/>
+        <ellipse cx="175" cy="230" rx="10" ry="26" fill="#d4874a" transform="rotate(15 175 230)"/>
+        <path d="M175 204 Q180 196 183 188" stroke="#4a5e2f" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <ellipse cx="200" cy="245" rx="9" ry="22" fill="#c07840" transform="rotate(-5 200 245)"/>
+        <ellipse cx="330" cy="210" rx="30" ry="18" fill="#8fa84e" transform="rotate(-15 330 210)"/>
+        <ellipse cx="345" cy="195" rx="22" ry="14" fill="#6b7c3f" transform="rotate(10 345 195)"/>
+        <ellipse cx="315" cy="225" rx="20" ry="12" fill="#4a5e2f" transform="rotate(-20 315 225)"/>
       </svg>
     </div>
     <div class="product-details">
@@ -752,9 +882,113 @@
   </div>
 </section>
 
+<!-- WHO WE ARE -->
+<section class="about-section" id="about">
+  <div class="section-tag">מי אנחנו</div>
+  <h2 class="section-title">המותג מאחורי הקופסה</h2>
+  <p class="section-subtitle">בריא-לי נולד מתוך אמונה פשוטה: אכילה בריאה צריכה להיות נוחה, מכובדת ומקומית.</p>
+
+  <div class="about-inner">
+
+    <!-- Logo + badges -->
+    <div class="about-logo-col">
+      <div class="about-logo-frame">
+    <img src="https://raw.githubusercontent.com/izabel-hash/Bari-li/refs/heads/main/logo.png">
+      </div>
+
+      <div class="about-stamp">
+        <div class="stamp-badge">
+          <div class="stamp-icon">🌾</div>
+          <div>
+            <strong>חקלאות ישראלית</strong>
+            ירקות מחקלאים מקומיים בלבד
+          </div>
+        </div>
+        <div class="stamp-badge">
+          <div class="stamp-icon">✡️</div>
+          <div>
+            <strong>כשר מהדרין</strong>
+            תחת השגחה קפדנית
+          </div>
+        </div>
+        <div class="stamp-badge">
+          <div class="stamp-icon">🌿</div>
+          <div>
+            <strong>ללא חומרים משמרים</strong>
+            טבעי לחלוטין, כמו שהטבע התכוון
+          </div>
+        </div>
+        <div class="stamp-badge">
+          <div class="stamp-icon">📦</div>
+          <div>
+            <strong>אריזה מחושבת</strong>
+            שומרת על טריות עד 7 ימים
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Story + process -->
+    <div class="about-story-col">
+
+      <div>
+        <p class="story-lead">
+          לקחנו ירקות <em>שלמים, טריים ומקומיים</em> —<br>
+          ועטפנו אותם בקופסה שנותנת להם כבוד.
+        </p>
+      </div>
+
+      <div>
+        <p class="story-body">
+          בריא-לי הוקם מתוך צורך אמיתי: ילד שחוזר מבית הספר עם נשנוש מעובד בתיק, מבוגר שדילג על ארוחת הצהריים כי לא היה משהו נוח — אנחנו מכירים את הסיפור הזה.
+          <br><br>
+          לכן בנינו מוצר שמסיר את כל המכשולים. לא צריך לשטוף, לא צריך לחתוך, לא צריך לחשוב. שליפה אחת מהמקרר — וקדימה לדרך.
+          <br><br>
+          הירקות שלנו מגיעים ישירות מחקלאים ישראלים, נארזים ביום המשלוח, ומגיעים אליכם כשהם טריים ומלאי חיות. כל קופסה היא הבטחה לאיכות.
+        </p>
+      </div>
+
+      <div>
+        <div class="process-title">🌱 מהשדה לקופסה — התהליך שלנו</div>
+        <div class="timeline">
+          <div class="timeline-step">
+            <div class="t-dot">🚜</div>
+            <div class="t-content">
+              <h4>קטיף מהחקלאי</h4>
+              <p>ירקות מיני נקטפים על ידי חקלאים ישראלים מובחרים, בהתאם לעונה ולטריות המרבית</p>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="t-dot">🚿</div>
+            <div class="t-content">
+              <h4>שטיפה ובדיקה</h4>
+              <p>כל ירק עובר שטיפה ובדיקת איכות — רק הטובים ביותר עוברים הלאה</p>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="t-dot">📦</div>
+            <div class="t-content">
+              <h4>אריזה מחושבת</h4>
+              <p>ארוזים ביום המשלוח עצמו בקופסה שמשמרת טריות, טמפרטורה ורעננות</p>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="t-dot">🏠</div>
+            <div class="t-content">
+              <h4>ישר אליכם</h4>
+              <p>מגיע למקרר שלכם — מוכן לשליפה, לתיק, ולאכילה. ללא תוספים. ללא פשרות.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- VALUES -->
 <section class="values-section" id="values">
-  <div class="section-tag">למה בריא-box</div>
+  <div class="section-tag">למה בריא-לי</div>
   <h2 class="section-title">הערכים שלנו</h2>
   <p class="section-subtitle">לא רק מוצר — מותג עם אמונה שאכילה בריאה צריכה להיות קלה, נגישה ומגניבה.</p>
   <div class="values-grid">
@@ -805,7 +1039,7 @@
     <div class="step">
       <div class="step-num">2</div>
       <h4>בחר כמות</h4>
-      <p>נאשר זמינות, כמות ותיאם איתך מועד משלוח</p>
+      <p>נאשר זמינות, כמות ונתאם איתך מועד משלוח</p>
     </div>
     <div class="step">
       <div class="step-num">3</div>
@@ -827,7 +1061,7 @@
   <p class="section-subtitle">קופסה ראשונה בשבילכם. שלחו לנו הודעה בוואטסאפ ונחזור אליכם מיד.</p>
   <div class="price-badge">₪10–15 לקופסה · משלוח בתיאום</div>
   <br>
-  <a href="https://wa.me/972500000000?text=%D7%94%D7%99%D7%99%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%91%D7%A8%D7%99%D7%90-box%20%F0%9F%A5%A6" class="whatsapp-btn" target="_blank">
+  <a href="https://wa.me/972500000000?text=%D7%94%D7%99%D7%99%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%91%D7%A8%D7%99%D7%90-%D7%9C%D7%99%20%F0%9F%A5%A6" class="whatsapp-btn" target="_blank">
     <svg class="whatsapp-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="16" cy="16" r="16" fill="white" opacity="0.15"/>
       <path d="M16 5.5C10.2 5.5 5.5 10.2 5.5 16c0 2.1.6 4.1 1.7 5.8L5.5 26.5l4.9-1.7c1.6.9 3.5 1.4 5.6 1.4 5.8 0 10.5-4.7 10.5-10.5S21.8 5.5 16 5.5zm5.2 14.4c-.2.6-1.2 1.2-1.7 1.2-.4.1-.9.1-1.4-.1-.3-.1-.8-.3-1.4-.5-2.4-1-4-3.5-4.1-3.6-.1-.2-.9-1.2-.9-2.3s.6-1.6.8-1.8c.2-.2.4-.3.6-.3h.4c.1 0 .3 0 .4.3l.6 1.5c.1.1.1.3 0 .4l-.3.5-.3.4c-.1.1-.2.2-.1.4.1.2.5.8 1 1.4.7.7 1.3 1 1.5 1.1.2.1.3.1.4 0l.4-.5c.1-.2.3-.2.5-.1l1.4.7c.2.1.3.2.4.3 0 .3-.1.8-.3 1z" fill="white"/>
@@ -839,8 +1073,11 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">בריא<span>-box</span></div>
-  <p>שליפה מהמקרר ישר לתיק · 2025</p>
+  <div class="footer-logo">
+    <img src="https://raw.githubusercontent.com/izabel-hash/Bari-li/refs/heads/main/logo.png">
+    <div class="footer-logo-text">בריא<span>-לי</span></div>
+  </div>
+  <p>ישר לתיק · 2025</p>
   <p>כל הזכויות שמורות</p>
 </footer>
 
